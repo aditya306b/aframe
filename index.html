@@ -1,0 +1,75 @@
+<html> 
+  
+  <head>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"> </script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="public/js/sphereexpand.js"></script>
+    <script src="public/js/backhome.js"></script>
+    <script src="public/js/componentstarter.js"></script>
+    <script src="public/js/profile.js"></script>
+  </head>
+  
+  <body>
+    
+     <a-scene limit>
+       
+       <a-assets>
+        <img id="bg" src="./real.png" alt="">
+         <img id="woodfloor" src="https://cdn.glitch.com/c388f728-37b7-4af9-af03-1ee7430663e7%2F4727356277_66fb5f938f_o.jpg?1544178281422">
+         <img id="wall" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2F4340689010_68c3b1bbb7_o%20(2).jpg?1547154870021">
+         <img id="starsky" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Fstarry%20night.jpg?1547158907338">
+         <img id="picasso" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FPablo_Picasso_-_Womanwith_a_Mandolin_-_Ermitage%20(1).jpg?1547166417213">
+         <img id="bordeauxtheater" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2FOp%C3%A9ra_National_de_Bordeaux%20(1).jpg?1547235572572">
+         <a-asset-item id="skullmodel" src="https://cdn.glitch.com/f2ee9d74-9726-4bed-9c30-2d49d6391dee%2Ftriceratops.glb?1547240293607"
+         response-type="arraybuffer"></a-asset-item>
+         <a-assest-item id="swamp" src="./swamp_scene.glb"></a-assest-item>
+         <a-assest-item id="lamp" src="./gas_lamp.glb"></a-assest-item>
+         <img id="dead-end" src="./dead-end.png">
+         <img id="profile" src="./profile.jpg">
+
+       </a-assets>
+             
+      <a-entity id="camera" position="0 0 0" camera wasd-controls="acceleration:1500" look-controls>
+        <a-entity cursor="rayOrigin: mouse"></a-entity>
+      </a-entity>
+      
+      <a-entity laser-controls="hand:right"></a-entity>
+
+      <!-- <a-sky id="sky" src="#starsky"></a-sky> -->
+      <a-sky id="sky" src="#bg"></a-sky>
+
+       <a-entity id="dead_end" position="1000 -50 45" rotation="0 -110 0" scale="10 10 10">
+        <a-plane position="0 0 0" rotation="0 0 0" width="10" height="10" material="src: #dead-end; transparent: true;"></a-plane>
+       </a-entity>
+       <a-entity id="dead_end_2" position="875
+        -50 -800" rotation="0 0 0" scale="10 10 10">
+        <a-plane position="0 0 0" rotation="0 0 0" width="10" height="10" material="src: #dead-end; transparent: true;"></a-plane>
+       </a-entity>
+
+       #Lamp
+       <a-entity id="lamp" position="60 -100 -130" rotation="0 0 0" scale="20 20 20" gltf-model="#lamp" >
+        <a-sphere position="0 1.5 0" radius="0.5" color="#fff" >
+          <a-light type="ambient" color="#fff" intensity="1.5" position="0 0 0"></a-light>
+        </a-sphere>
+        <a-plane position="0 5 0" color="#fff" toggle_profile>
+          <a-text value="CLICK" color="#000" position="-0.35 0 0"></a-text>
+        </a-plane>
+       </a-entity>
+
+      #Profile card
+       <a-entity id="profile_card" position="250 0 0" rotation="0 -90 0" scale="35 25 25">
+        <a-plane position="0 0 0" rotation="0 0 0" width="10" height="10" color="#fff">
+        <a-image  position="-2.5 0 1" rotation="0 0 0" width="2.5" height="5" src="#profile"></a-plane>
+        </a-image >
+        <a-text value="Hello, Aditya here!\n As a Software Engineer at 47 Billion, I contribute to Obsidian, an innovative edtech product. My IT education from Medicaps University fuels my passion for crafting robust solutions. Dedicated to enhancing learning experiences through technology.
+
+        I love to play Table Tennis." color="#000" position="-1 0 1"></a-text>
+       </a-entity>
+       
+       <a-gltf-model id="model" position="500 -250 800" rotation="0 0 0" src="#swamp"></a-gltf-model>
+      
+     </a-scene>
+    
+  </body>
+  
+</html>
